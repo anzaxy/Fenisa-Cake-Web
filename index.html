@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fenisa Dreams Bakery - Pesanan Cake</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>𝓕𝓮𝓷𝓲𝓼𝓪 𝓓𝓻𝓮𝓪𝓶𝓼 𝓑𝓪𝓴𝓮𝓻𝔂</h1>
+                
+                <div class="header-search">
+                    <form id="searchForm" action="cake.php" method="GET" class="search-form">
+                        <input type="text" id="keyword" name="keyword" placeholder="Cari cake..." class="search-input">
+                        <select id="kategori" name="kategori" class="search-select">
+                            <option value="">Semua Kategori</option>
+                            <option value="Birthday">Birthday Cake</option>
+                            <option value="Wedding">Wedding Cake</option>
+                            <option value="Anniversary">Anniversary Cake</option>
+                            <option value="Custom">Custom Cake</option>
+                            <option value="Cupcake">Cupcake</option>
+                        </select>
+                        <button type="submit" id="searchBtn" class="search-btn">Cari</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <h2>Temukan Cake Impian Anda</h2>
+            <p>Berbagai pilihan cake lezat untuk momen spesial Anda</p>
+        </section>
+
+        <section id="featured" class="featured-section">
+            <div class="container">
+                <h3>Cake Unggulan</h3>
+                <div class="cake-grid">
+                    <a href="order.php?id=1" class="cake-card">
+                        <div class="cake-image">🎂</div>
+                        <h4>Chocolate Deluxe</h4>
+                        <p>Cake coklat premium dengan lapisan ganache</p>
+                        <span class="price">Rp 350.000</span>
+                        </a> 
+                    <a href="order.php?id=2" class="cake-card">
+                        <div class="cake-image">🍰</div>
+                        <h4>Strawberry Dream</h4>
+                        <p>Cake strawberry segar dengan krim vanilla</p>
+                        <span class="price">Rp 320.000</span>
+                    </a>
+                     <a href="order.php?id=3" class="cake-card">
+                        <div class="cake-image">🧁</div>
+                        <h4>Rainbow Cupcakes</h4>
+                        <p>Set 12 cupcakes warna-warni</p>
+                        <span class="price">Rp 180.000</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Anisa Zahra Salsabila & Feni Destiana</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            const keyword = document.getElementById('keyword').value.trim();
+            const errorMessage = document.getElementById('errorMessage');
+            
+            if (keyword === '') {
+                e.preventDefault();
+                errorMessage.textContent = 'Masukkan kata kunci pencarian';
+                errorMessage.style.display = 'block';
+                
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
+                }, 3000);
+            } else {
+                errorMessage.style.display = 'none';
+            }
+        });
+
+        // Clear error message when user starts typing
+        document.getElementById('keyword').addEventListener('input', function() {
+            document.getElementById('errorMessage').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
